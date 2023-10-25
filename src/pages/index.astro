@@ -4,62 +4,60 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+import Testimonial from '../components/Testimonial.astro'
+
 ---
 
 <DefaultLayout title="Home">
   <Hero />
-  <section class="my-64">
+  <section class="my-36">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:tailwind" title="Tailwind CSS">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
+      <h2 class="mb-16 text-6xl">Our Services </h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 ">
+        
+        <Feature icon="mdi:marketplace" title="Marketplace Research">
         </Feature>
-        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
-          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
+        <Feature icon="mdi:cellphone-wireless" title="Social Media Advertising">
         </Feature>
-        <Feature icon="mdi:looks" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
+        <Feature icon="mdi:search-web" title="Search Engine Advertising">
         </Feature>
-        <Feature icon="mdi:eslint" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
+        <Feature icon="mdi:cellphone-link" title="Web, Landing Page and Digital Design">
         </Feature>
-        <Feature icon="mdi:book-open-page-variant" title="Blog">
-          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
+        <Feature icon="mdi:bullhorn-outline" title="Branding and identity">
         </Feature>
-        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
+        <Feature icon="mdi:account-convert" title="Lead Tracking and Nurturing">
         </Feature>
-        <Feature icon="mdi:theme-light-dark" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="mdi:cog" title="Design System">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
-        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
-          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
-        </Feature>
+
       </div>
     </div>
   </section>
   <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
+    <h1 class="reveal-type">HOW DO WE DO IT?</h1>
+    <h3>Being experts isn't easy...</h3>
+    <h4>But it's necessary to deliver real results.</h4>
+
+    <p class="text-1xl">
+      Just like you with your business, we are constantly analyzing our results, learning from the data what works and what needs to be tweaked for our clients. The tech world changes every day, we change with it to make sure we've got an edge that will favor those we work with.
+    </p>
+    <p class="text-1xl">
+      We also consistently train and take courses from the best minds in the business to learn new techniques or refresh on current ones to keep us sharp. We love what we do, and you'll love the results of our efforts.
     </p>
   </ContentMedia>
   <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
+    <h1>WHY ORANGE DOT MKT?</h1>
+    <h3>We do the work, you take the lead.</h3>
+    <h4>Let us totally handle your online advertising and lead generation for you.</h4>
+
+    <p>We are experts in the latest and most effective ways to generate hot leads for your business. We can attract people who need your products and/or services today. Our state-of-the-art methods attract people who will want what your business offers, based on the service(s) you want to feature.
     </p>
+    <p>We can help you find more customers fast! It's what we do.
+      You know your industry, we know how to get the people you need to call.</p>
   </ContentMedia>
-  <section class="mt-64 mb-32">
+
+  <Testimonial>
+    
+  </Testimonial>
+  <!-- <section class="mt-64 mb-32">
     <div class="container">
       <h2 class="mb-16 text-6xl">Counters</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
@@ -69,5 +67,5 @@ import ContentMedia from '../components/ContentMedia.astro'
         <Counter count="18+" title="Months" sub="Since launch" />
       </div>
     </div>
-  </section>
+  </section> -->
 </DefaultLayout>
