@@ -9,4 +9,6 @@ export default defineConfig({
   integrations: [mdx(), tailwind({
     applyBaseStyles: false,
   }), compress()],
+  site: 'https://IvanPotentor.github.io',
+  base: '/astro-exampleeivan1',
 })
