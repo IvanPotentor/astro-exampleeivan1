@@ -6,9 +6,9 @@ import compress from 'astro-compress'
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  integrations: [mdx(), tailwind({
-    applyBaseStyles: false,
-  }), compress()],
   site: 'https://IvanPotentor.github.io',
   base: '/astro-exampleeivan1',
+  integrations: [mdx(), tailwind({
+    applyBaseStyles: false,
+  }), compress()]
 })
