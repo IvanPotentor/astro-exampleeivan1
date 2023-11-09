@@ -1,0 +1,1 @@
+import"./hoisted.8af466f2.js";flatpickr("#fecha",{dateFormat:"Y-m-d",wrap:!0});
