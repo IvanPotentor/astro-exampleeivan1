@@ -28,11 +28,16 @@
     "prettier-plugin-tailwindcss": "^0.2.2",
     "sass": "^1.49.9",
     "svgo": "^2.8.0",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.3.5"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.27",
+    "aos": "^2.3.4",
+    "flatpickr": "^4.6.13",
+    "flowbite": "^2.0.0",
     "gh-pages": "^6.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss-animated": "^1.0.1",
     "tw-elements": "^1.0.0"
   }

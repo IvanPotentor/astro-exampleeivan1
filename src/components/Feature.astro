@@ -7,7 +7,7 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
   <div class="feature flex flex-col gap-4 hover:-translate-y-4 transition duration-300">
     <Icon name={icon} />
     <div class="content">
-      <h3 class="text-white">{title}</h3>
+      <h3 class=" dark:text-white">{title}</h3>
       <p>
         <!-- <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot> -->
       </p>
@@ -57,6 +57,10 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
 
   :global(.feature [astro-icon]) {
     width: 4rem;
+    color: var(--action-color);
+  }
+
+  :global(.feature h3) {
     color: var(--action-color);
   }
 

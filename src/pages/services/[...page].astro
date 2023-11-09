@@ -14,6 +14,7 @@ const servicesCard = [
   {
     icon: 'mdi:marketplace',
     title: 'Marketplace Research',
+    subtitle: 'We are experts at finding out what works best!',
     description: 'We have tools and methods to research and analyze what works best in your marketplace, local and beyond. We can even see what your competition is doing! This helps us to develop the most effective strategy that will allow you to start seeing increased business sooner rather than later.'
   },
   {
@@ -63,8 +64,8 @@ const servicesCard = [
             <Icon name={item.icon} />
             <div class="content">
               <h3>{item.title}</h3>
-              <h5>We are experts at finding out what works best!</h5>
-              <p>
+              <h5 class="dark:text-white">{item.subtitle}</h5>
+              <p class="mt-7">
                 {item.description}
               </p>
             </div>
@@ -116,6 +117,10 @@ const servicesCard = [
 
   :global(.feature [astro-icon]) {
     width: 4rem;
+    color: var(--action-color);
+  }
+
+  :global(.feature h3) {
     color: var(--action-color);
   }
 

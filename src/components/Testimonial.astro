@@ -1,4 +1,5 @@
 ---
+
 const testimonials = [
   {
     name: 'C. Davis',
@@ -25,7 +26,7 @@ const testimonials = [
 ---
 
 <section class="py-16 sm:py-20">
-  <div class="v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+  <div class="testimonial v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col items-center gap-12 lg:gap-20">
       <h2 class="mx-auto max-w-xl text-center text-3xl font-medium tracking-tight sm:text-4xl">
         What Our Clients Say
@@ -57,3 +58,20 @@ const testimonials = [
     </div>
   </div>
 </section>
+
+
+<style>
+  :global(.testimonial h2) {
+    color: var(--action-color);
+  }
+
+  .bg-customDarkBg2 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 39 43 / var(--tw-bg-opacity));
+  }
+
+  .bg-customDarkBg3 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(48 49 54 / var(--tw-bg-opacity));
+  }
+</style>

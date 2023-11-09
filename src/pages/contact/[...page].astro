@@ -1,5 +1,11 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
+// Importa los archivos de estilo de flatpickr
+import 'flatpickr/dist/flatpickr.css';
+
+// Importa flatpickr
+import flatpickr from 'flatpickr';
+
 
 export async function getStaticPaths({ paginate }) {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -90,31 +96,50 @@ export async function getStaticPaths({ paginate }) {
         </div>
         <form action="#" method="POST" class="mt-3 flex flex-col gap-y-6">
           <!-- Full name input -->
-          <div>
-            <label for="full-name" class="sr-only">Full name</label>
-            <input
-              type="text"
-              name="full-name"
-              id="full-name"
-              autocomplete="name"
-              class="hover:ring-purple-500 focus:ring-purple-500 dark:hover:ring-primary-400 dark:focus:ring-primary-400 bg-primary-50 dark:bg-slate-900 ring-primary-900/40 dark:ring-purple-500 placeholder:text-orange-500/60 dark:placeholder:text-primary-200/60 block w-full appearance-none rounded-md border-0 px-4 py-4 text-base ring-1 transition focus:outline-none focus:ring-2"
-              placeholder="Full name"
-            />
-          </div>
+            <div class="relative">
+              <!-- <input
+                type="text"
+                id="username"
+                class="border-b focus:outline-none focus:border-b-purple-600 focus:border-b-2 transition-colors peer hover:ring-purple-500 focus:ring-purple-500 dark:hover:ring-primary-400 dark:focus:ring-primary-400 bg-primary-50 dark:bg-[#161618] ring-[#161618] placeholder:text-orange-500/60 dark:placeholder:text-primary-200/60 block w-full appearance-none rounded-md border-0 px-4 py-4 text-base ring-1 transition focus:outline-none focus:ring-2" autocomplete="off"
+                type="text"
+                name="full-name"
+                id="full-name"
+              > -->
+
+
+              <input 
+                id="name"
+                name="nameF"
+                type="text"
+                class="peer w-full border-b-2 border-0 dark:bg-[#161618] text-orange-500 placeholder-transparent focus:outline-none focus:border-b-purple-600 px-4 py-4 rounded-md"
+                placeholder="full"
+                autocomplete="off"
+              />
+              <label for="nameF" class="absolute left-0 -top-3.5 text-purple-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm">Full name</label>
+            </div>
   
           <!-- Email input -->
-          <div>
-            <label for="email" class="sr-only">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              autocomplete="email"
-              class="hover:ring-purple-500 focus:ring-purple-500 dark:hover:ring-primary-400 dark:focus:ring-orange-500 bg-white dark:bg-slate-900 ring-orange-500/40 dark:ring-purple-500 placeholder:text-purple-500 dark:placeholder:text-orange-500 block w-full appearance-none rounded-md border-0 px-4 py-4 text-base ring-1 transition focus:outline-none focus:ring-2"
-              placeholder="Email"
+          <div class="relative">
+            <input 
+                id="email"
+                name="email"
+                type="email"
+                class="peer w-full border-b-2 border-0 dark:bg-[#161618] text-orange-500 placeholder-transparent focus:outline-none focus:border-b-purple-600 px-4 py-4 rounded-md"
+                placeholder="john@doe.com"
+                autocomplete="off"
             />
+            <label for="email" class="absolute left-0 -top-3.5 text-purple-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-purple-500 peer-focus:text-sm">Email</label>
           </div>
   
+
+          
+          
+          <div class="p-4">
+            <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" class="mt-1 p-2 block w-full border rounded-md">
+          </div>
+
+
           <!-- Message textarea -->
           <div>
             <label for="message" class="sr-only">Message</label>
@@ -142,6 +167,14 @@ export async function getStaticPaths({ paginate }) {
 
 </DefaultLayout>
 
+<script>
+  // Inicializa flatpickr en el campo de entrada de fecha
+  flatpickr('#fecha', {
+    dateFormat: 'Y-m-d', // Formato de fecha deseado
+    wrap: true, // Envolver el campo de entrada en un contenedor para aplicar estilos
+  });
+</script>
+
 <style lang="scss">
   ul {
     display: grid;
@@ -157,4 +190,5 @@ export async function getStaticPaths({ paginate }) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
 </style>

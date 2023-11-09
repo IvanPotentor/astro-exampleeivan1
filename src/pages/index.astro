@@ -5,7 +5,37 @@ import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
 import Testimonial from '../components/Testimonial.astro'
+import ScrollButton from '../components/ScrollButton.astro'
 
+
+const process = [
+  [
+    {
+      ref: '01',
+      name: 'Kickoff Call',
+      description:
+        'Your dedicated Marketing Strategist Manager will meet with you in person or  virtual, to gain a full understanding of your business and overall goals to plan a successful marketing strategy.',
+    },
+    {
+      ref: '02',
+      name: 'Strategy Plan',
+      description:
+        'Once we have completed studying your product or service we will align your goals to your  budget. Then our team will investigate your marketplace, see what your competition is doing and find ways to help you do better. At this point we will develop a full-scope marketing plan, specific to your business.',
+    },
+    {
+      ref: '03',
+      name: 'Onboarding and on- going',
+      description:
+        'Once we review your marketing strategy plan, our team will begin the launch of your campaign based on your plan. You will be given the launch date and check-in calendar to follow along with the team. After approval for this step you became part of our Orange Dot MKT team.',
+    },
+    {
+      ref: '04',
+      name: 'Data and results',
+      description:
+        'We will provide you monthly data, for us results are everything. Our purpose is to work together, meet your monthly goals and continue improving.',
+    },
+  ],
+];
 ---
 
 <DefaultLayout title="Home">
@@ -13,7 +43,7 @@ import Testimonial from '../components/Testimonial.astro'
   <section class="my-36">
     <div class="container">
       <h2 class="mb-16 text-6xl">Our Services </h2>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 ">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         
         <Feature icon="mdi:marketplace" title="Marketplace Research">
         </Feature>
@@ -31,7 +61,7 @@ import Testimonial from '../components/Testimonial.astro'
       </div>
     </div>
   </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
+  <!-- <ContentMedia imgSrc="/accessible-components.webp">
     <h1 class="reveal-type">HOW DO WE DO IT?</h1>
     <h3>Being experts isn't easy...</h3>
     <h4>But it's necessary to deliver real results.</h4>
@@ -42,17 +72,44 @@ import Testimonial from '../components/Testimonial.astro'
     <p class="text-1xl">
       We also consistently train and take courses from the best minds in the business to learn new techniques or refresh on current ones to keep us sharp. We love what we do, and you'll love the results of our efforts.
     </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h1>WHY ORANGE DOT MKT?</h1>
-    <h3>We do the work, you take the lead.</h3>
-    <h4>Let us totally handle your online advertising and lead generation for you.</h4>
+  </ContentMedia> -->
+  
+  <section >
+    <ContentMedia imgSrc="/why.gif" reverseImg={true}>
+      
+      <h3 class="text-white">We do the work, you take the lead.</h3>
+      <h4>Let us totally handle your online advertising and lead generation for you.</h4>
 
-    <p>We are experts in the latest and most effective ways to generate hot leads for your business. We can attract people who need your products and/or services today. Our state-of-the-art methods attract people who will want what your business offers, based on the service(s) you want to feature.
-    </p>
-    <p>We can help you find more customers fast! It's what we do.
-      You know your industry, we know how to get the people you need to call.</p>
-  </ContentMedia>
+      <p class="text-white">We are experts in the latest and most effective ways to generate hot leads for your business. We can attract people who need your products and/or services today. Our state-of-the-art methods attract people who will want what your business offers, based on the service(s) you want to feature. We can help you find more customers fast! It's what we do. You know your industry, we know how to get the people you need to call.</p>
+    </ContentMedia>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-8 lg:gap-12">
+        <h2 class="text-6xl font-medium tracking-tight text-center title-about">Our process</h2>
+        <div class="grid gap-8 ">
+          {
+            process.map((column, index) => (
+              <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
+                {column.map((value) => (
+                  <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8 hover:-translate-y-6 transition duration-300 w-3/4 mx-auto">
+                    <p class="text-6xl">{value.ref}</p>
+                    <div class="flex flex-col gap-4">
+                      <h2 class="text-3xl font-medium">{value.name}</h2>
+                      <p class="  text-base sm:text-lg text-2xl">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
   <Testimonial>
     
@@ -69,3 +126,11 @@ import Testimonial from '../components/Testimonial.astro'
     </div>
   </section> -->
 </DefaultLayout>
+<!-- <ScrollButton></ScrollButton> -->
+<style>
+
+  .title-about h3,h1,h2,h4 {
+    color: var(--action-color);
+  }
+
+</style>
