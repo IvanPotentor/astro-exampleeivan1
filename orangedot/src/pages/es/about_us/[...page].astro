@@ -1,0 +1,379 @@
+---
+import DefaultLayout from '../../../layouts/esp/DefaultLayout.astro'
+import { Card, Pagination } from 'accessible-astro-components'
+
+export async function getStaticPaths({ paginate }) {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const data = await response.json()
+
+  return paginate(data, { pageSize: 6 })
+}
+
+const { page } = Astro.props
+
+const stats = [
+  {
+    name: 'Years',
+    value: '9',
+  },
+  {
+    name: 'Experts',
+    value: '15',
+  },
+  {
+    name: 'Projects',
+    value: '122',
+  },
+  {
+    name: 'Awards',
+    value: "'9'",
+  },
+];
+
+
+const team = [
+  {
+    name: 'Irasema Sias',
+    image: '/assets/team1_22.jpeg',
+    job: 'Ed Marketing Consultan',
+  },
+  {
+    name: 'Jesus Ivan',
+    image: '/assets/team2.jpg',
+    job: 'Senior Developer',
+  },
+  {
+    name: 'Noel Jacquez ',
+    image: '/assets/team3.jpg',
+    job: 'Branding and Identity Specialist',
+  },
+];
+
+const values = [
+  [
+    {
+      ref: '01',
+      name: 'Excellence',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+    {
+      ref: '02',
+      name: 'Innovation',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+  ],
+  [
+    {
+      ref: '03',
+      name: 'Teamwork',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+    {
+      ref: '04',
+      name: 'Respect',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+  ],
+];
+
+const process = [
+  [
+    {
+      ref: '01',
+      name: 'Kickoff Call',
+      description:
+        'Your dedicated Marketing Strategist Manager will meet with you in person or  virtual, to gain a full understanding of your business and overall goals to plan a successful marketing strategy.',
+    },
+    {
+      ref: '03',
+      name: 'Onboarding and on- going',
+      description:
+        'Once we review your marketing strategy plan, our team will begin the launch of your campaign based on your plan. You will be given the launch date and check-in calendar to follow along with the team. After approval for this step you became part of our Orange Dot MKT team.',
+    },
+  ],
+  [
+    {
+      ref: '02',
+      name: 'Strategy Plan',
+      description:
+        'Once we have completed studying your product or service we will align your goals to your  budget. Then our team will investigate your marketplace, see what your competition is doing and find ways to help you do better. At this point we will develop a full-scope marketing plan, specific to your business.',
+    },
+    {
+      ref: '04',
+      name: 'Data and results',
+      description:
+        'We will provide you monthly data, for us results are everything. Our purpose is to work together, meet your monthly goals and continue improving.',
+    },
+  ],
+];
+---
+
+<DefaultLayout
+  title="About Us"
+  description="Orange Dot MKT is a dynamic and innovative digital marketing agency. Specialized in making online business growth through marketing consultants services , innovative strategies and data-driven insights. Our services include SEO, social media, content, web design, funnel optimization, landing pages, and both paid and organic social media advertising."
+>
+
+  <!-- <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-8 lg:gap-12">
+        <h2 class="text-6xl font-medium tracking-tight text-center title-about">Our process</h2>
+        <div class="grid gap-8 lg:grid-cols-2">
+          {
+            process.map((column, index) => (
+              <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
+                {column.map((value) => (
+                  <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8 hover:-translate-y-6 transition duration-300">
+                    <p class="text-3xl">{value.ref}</p>
+                    <div class="flex flex-col gap-4">
+                      <h3 class="text-xl font-medium">{value.name}</h3>
+                      <p class="  text-base sm:text-lg">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-4 sm:gap-6">
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl title-about">Quiénes somos</h1>
+        <p class="  mx-auto max-w-6xl text-lg sm:text-xl">
+          Orange Dot MKT es una agencia de marketing digital. Está dirigida por Irasema Sias y su equipo, expertos en estrategias de marketing digital, branding, diseño, generación de leads y lead nurturing para industrias globales.
+        </p>
+        <p class="  mx-auto max-w-6xl text-lg sm:text-xl">
+          El único propósito de Orange Dot MKT es crear más negocio para nuestros clientes. No nos limitamos a captar listas de nombres. Atraemos a personas que necesitan servicios que nuestros clientes quieren presentar, ahora mismo, hoy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <img
+          class="mx-auto h-auto w-full max-w-xl rounded-3xl xl:w-3/4"
+          src="/assets/about_team.jpg"
+          alt="Our experts working together"
+        />
+        <div class="flex flex-col gap-10">
+          <!-- Mission description -->
+          <div class="space-y-8 sm:space-y-12">
+            <h2 class="text-3xl font-medium tracking-tight sm:text-4xl title-about">Nuestra misión</h2>
+            <div class="space-y-6">
+              <p class="  text-base sm:text-lg">
+                La misión de Orange Dot es innovar plenamente y elaborar estrategias en función de las necesidades del cliente para crear conciencia de marca y retorno de la inversión a través de un sistema personalizado. Denota el servicio al cliente por un equipo que se valora y tiene la pasión para crear el bienestar y la sustantividad de cualquier organización.
+              </p>
+            </div>
+
+            <h2 class="text-3xl font-medium tracking-tight sm:text-4xl title-about">Our vision</h2>
+            <div class="space-y-6">
+              <p class="  text-base sm:text-lg">
+                Orange Dot tiene como objetivo apoyar a las empresas con la innovación de sistemas digitales en la comercialización para llevar a la organización con un propósito SMART.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <!-- <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {
+              stats.map((stat) => (
+                <div class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border p-6">
+                  <dt class="text-base">{stat.name}</dt>
+                  <dd class="text-3xl font-medium tracking-tight">{stat.value}</dd>
+                </div>
+              ))
+            }
+          </dl> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-16 sm:py-7">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-8 lg:gap-12">
+        <h2 class="text-6xl font-medium text-center tracking-tight title-about">¿CÓMO LO HACEMOS?</h2>
+        <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <div class="">
+            <h4 class="text-3xl font-medium tracking-tight ">Tenemos el conocimiento y las herramientas para ayudarle a tener éxito.</h4>
+              <p class="text-lg mt-5">Podemos escanear las campañas de sus competidores</p>
+              <p class="text-lg mt-5">Podemos generar miles de palabras clave</p>
+              <p class="text-lg mt-5">Podemos aprovechar su poder de compra para reducir los precios de pago por clic</p>
+              <p class="text-lg mt-5">Podemos diseñar páginas de aterrizaje, sitios web y diseños eficaces</p>
+              <p class="text-lg mt-5">Podemos producir anuncios online efectivos</p>
+              <p class="text-lg mt-5">Podemos diseñar una identidad de marca atractiva</p>
+              <p class="text-lg mt-5">Podemos utilizar o enseñarle a seguir y alimentar a sus clientes potenciales en su propio CRM.</p>
+
+          </div>
+
+          <img
+              class="mx-auto h-auto w-full max-w-xl rounded-3xl mt-14"
+              width="576"
+              height="864"
+              src="/assets/OD_42.jpg"
+              alt="Our experts working together"
+            />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:my-16">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-8 lg:gap-12">
+        <h2 class="text-6xl font-medium text-center tracking-tight title-about">WHY US?</h2>
+        <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          <img
+            class="mx-auto h-auto w-full max-w-xl rounded-3xl mt-14"
+            width="576"
+            height="864"
+            src="/assets/OD_32.jpg"
+            alt="Our experts working together"
+          />
+
+          <div class="">
+            <h4 class="text-3xl font-medium tracking-tight ">¿Qué nos hace mejores?</h4>
+              <p class="text-lg my-4">Nuestra experiencia en la creación de anuncios y leads</p>
+              <p class="text-lg my-4">Nuestras técnicas de investigación</p>
+              <p class="text-lg my-4">Nuestro método 1-to-1</p>
+              <p class="text-lg my-4">Nuestras habilidades de desarrollo web</p>
+              <p class="text-lg my-4">Nuestras herramientas de formación</p>
+              <p class="text-lg my-4">Nuestro diseño de marca</p>
+  
+              <p class="text-lg mt-5">Nuestros métodos de diseño y marketing ayudan a los buscadores de Internet a pasar rápidamente de visitantes a clientes potenciales. Hay muchos generadores de clientes potenciales que se limitan a darle nombres y números. Nosotros entregamos personas interesadas que quieren los servicios que usted ofrece ahora mismo. Incluso hacemos que usted sepa lo bien que nuestra generación de leads está haciendo para usted también, en cada paso del camino.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section >
+    <div class="grid items-center gap-24 lg:grid-cols-1">
+      <div class="flex flex-col items-center gap-8 md:items-start ">
+        <h1 class="text-center mx-auto lg:text-6xl hover:-translate-x-6 transition duration-300">
+          <span class="text-gradient">Spread More.</span>
+        </h1>
+        <h1 class="text-center mx-auto lg:text-6xl hover:translate-x-6 transition duration-300">
+          Reach More.
+        </h1>
+        <h1 class="text-center mx-auto lg:text-6xl hover:-translate-x-6 transition duration-300">
+          Grow More.
+        </h1>
+      </div>
+    </div>
+    <div class="my-14 px-5">
+      <p class="  mx-auto max-w-6xl text-2xl sm:text-xl my-8">
+        This is the ultimate starting point for businesses wanting to excel online.
+      </p>
+      <p class="  mx-auto max-w-6xl text-2xl sm:text-xl my-8">
+        Reach out to us today by phone or form and we'll get started investigating your market.
+      </p>
+      <p class="  mx-auto max-w-6xl text-2xl sm:text-xl my-8">
+        We'll give you a report of what your competition is doing and what you can do, starting today, to increase your market reach and start the influx of more customers.
+      </p>
+    </div>
+  </section> -->
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="sm:space-8 space-y-12">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl title-about">Conoce a nuestro equipo</h2>
+        <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            team.map((item) => (
+              <li class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border px-6 py-8">
+                <div class="space-y-6">
+                  <img class="mx-auto h-auto w-16 rounded-full" src={item.image} alt={item.name} />
+                  <div class="text-center">
+                    <h3 class="text-lg font-medium">{item.name}</h3>
+                    <p class="  text-base">{item.job}</p>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="my-12">
+    <div class="container">
+      <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p>
+      <ul class="my-3">
+        {
+          page.data.map((post) => (
+            <li>
+              <Card
+                url={'/blog/' + post.title.replaceAll(' ', '-').toLowerCase()}
+                title={post.title}
+                footer={'userId:' + post.userId}
+              >
+                {post.body}
+              </Card>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-12 grid place-content-center">
+        <Pagination
+          firstPage={page.url.prev ? '/blog' : null}
+          previousPage={page.url.prev ? page.url.prev : null}
+          nextPage={page.url.next ? page.url.next : null}
+          lastPage={page.url.next ? `/blog/${Math.round(page.total / page.size)}` : null}
+          currentPage={page.currentPage}
+          totalPages={Math.round(page.total / page.size)}
+        />
+      </div>
+    </div>
+  </section> -->
+
+</DefaultLayout>
+
+<style lang="scss">
+  ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 4rem;
+
+    @media (min-width: 550px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+
+    @media (min-width: 950px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .text-gradient {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-500));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  :global(.darkmode .text-gradient) {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title-about h3,h1,h2,h4 {
+    color: var(--action-color);
+  }
+
+</style>

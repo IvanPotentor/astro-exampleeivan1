@@ -1,0 +1,507 @@
+---
+import DefaultLayout from '../../layouts/esp/DefaultLayout.astro'
+import Hero from '../../components/esp/Hero.astro'
+import Feature from '../../components/Feature.astro'
+import Counter from '../../components/Counter.astro'
+import ContentMedia from '../../components/ContentMedia.astro'
+import Slogan from '../../components/Slogan.astro'
+import Clients from '../../components/Clients.astro'
+import Testimonial from '../../components/Testimonial.astro'
+import ScrollButton from '../../components/ScrollButton.astro'
+import Consultoring from '../../components/Consultoring.astro'
+import { Icon } from 'astro-icon'
+import { getEntry } from "astro:content";
+
+const testimonial = await getEntry("sections", "testimonial");
+
+const process = [
+  [
+    {
+      ref: '01',
+      name: 'Llamada inicial',
+      description:
+        'Su Director de Estrategias de Marketing se reunirá con usted en persona o de forma virtual para conocer a fondo su negocio y sus objetivos generales y planificar una estrategia de marketing de éxito.',
+    },
+    {
+      ref: '02',
+      name: 'Plan estratégico',
+      description:
+        'Una vez hayamos terminado de estudiar su producto o servicio, ajustaremos sus objetivos a su presupuesto. A continuación, nuestro equipo investigará su mercado, verá lo que hace su competencia y buscará formas de ayudarle a hacerlo mejor. Llegados a este punto, desarrollaremos un plan de marketing completo, específico para su negocio.',
+    },
+    {
+      ref: '03',
+      name: 'Incorporación y continuación',
+      description:
+        'Una vez revisado su plan de estrategia de marketing, nuestro equipo iniciará el lanzamiento de su campaña basándose en su plan. Se le dará la fecha de lanzamiento y el calendario de check-in para seguir junto con el equipo. Tras la aprobación de este paso, pasará a formar parte de nuestro equipo Orange Dot MKT.',
+    },
+    {
+      ref: '04',
+      name: 'Datos y resultados',
+      description:
+        'Te proporcionaremos datos mensuales, para nosotros los resultados lo son todo. Nuestro propósito es trabajar juntos, cumplir tus objetivos mensuales y seguir mejorando.',
+    },
+  ],
+];
+
+---
+
+<DefaultLayout 
+  title="Home"
+  description="Orange Dot MKT is a dynamic and innovative digital marketing agency. Specialized in making online business growth through marketing consultants services , innovative strategies and data-driven insights. Our services include SEO, social media, content, web design, funnel optimization, landing pages, and both paid and organic social media advertising."
+>
+  <Hero />
+
+  <section class="">
+    <Slogan imgSrc="/slogan.jpg" reverseImg={true}>
+      
+      <h1 class="text-center sm:text-3xl md:text-left lg:text-4xl first:animate-fade-right animate-ease-in-out animate-delay-300 pb-2">
+        <span class="text-gradient2">Difunda su negocio.</span>
+      </h1>
+      <h1 class="text-center sm:text-3xl md:text-left lg:text-4xl animate-fade-right animate-ease-in-out animate-delay-700 pb-2">
+        <span class="text-gradient">Llegue a más clientes.</span>
+      </h1>
+      <h1 class="text-center sm:text-3xl md:text-left lg:text-4xl animate-fade-right animate-ease-in-out animate-delay-1000 pb-2">
+        <span class="text-gradient">Aumente sus beneficios.</span>
+      </h1>
+
+
+      <div class="mx-auto max-w-7xl md:pt-16">
+        <p class=" text-neutral-600 dark:text-neutral-200 text-xl animate-ease-in-out animate-delay-100 pb-8">
+            Somos una agencia de marketing digital bilingüe comprometida a ayudar a nuestros clientes a ampliar su alcance, fidelizar su marca y lograr un crecimiento sostenible en el mercado multicultural actual.
+        </p>
+      </div>
+    </Slogan>
+  </section>
+    
+
+  <section class="my-16">
+    <div class="container">
+      
+      <h2 class="mb-16 text-6xl">Nuestros servicios </h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        
+        <Feature icon="mdi:marketplace" title="Investigación de mercado y relaciones públicas" color="purple">
+        </Feature>
+        <Feature icon="mdi:cellphone-wireless" title="Publicidad en redes sociales" color="pink">
+        </Feature>
+        <Feature icon="mdi:search-web" title="Publicidad en buscadores" color="blue">
+        </Feature>
+        <Feature icon="mdi:cellphone-link" title="Diseño web, de páginas de aterrizaje y digital" color="green">
+        </Feature>
+        <Feature icon="mdi:bullhorn-outline" title="Marca e identidad">
+        </Feature>
+        <Feature icon="mdi:account-convert" title="Seguimiento y nutrición de clientes potenciales" color="red">
+        </Feature>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full lg:w-3/5 mx-auto">
+    <div class="border-t border-customGrayBorder"></div>
+  </div>
+
+  <Consultoring>
+
+  </Consultoring>
+
+
+  <section >
+    <ContentMedia imgSrc="/why.gif" reverseImg={true}>
+      
+      <h3 class="text-white">Nosotros hacemos el trabajo, usted toma la iniciativa.</h3>
+      <h4 class="text-justify">Deje que nos encarguemos totalmente de su publicidad en línea y de la generación de prospectos.</h4>
+
+      <p class="text-white text-justify">Somos expertos en las formas más modernas y eficaces de generar clientes potenciales para su negocio. Podemos atraer a personas que necesitan sus productos y/o servicios hoy. Nuestros métodos de vanguardia atraen a personas que querrán lo que su negocio ofrece, basado en el servicio (s) que desea presentar. Podemos ayudarle a encontrar más clientes rápidamente. Es lo que hacemos. Usted conoce su sector, nosotros sabemos cómo conseguir que llamen las personas que necesita.</p>
+    </ContentMedia>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-8 lg:gap-12">
+        <h2 class="text-6xl font-medium tracking-tight text-center title-about">Nuestro proceso probado</h2>
+        {
+          process.map((column, index) => (
+              <div class="grid md:grid-cols-4 gap-8 ">
+                {column.map((value) => (
+                  <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8 hover:-translate-y-6 transition duration-300 md:w-full">
+                    <p class="text-6xl">{value.ref}</p>
+                    <div class="flex flex-col gap-4">
+                      <h2 class="text-3xl font-medium">{value.name}</h2>
+                      <p class="sm:text-lg md:text-sm text-justify">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))
+          }
+      </div>
+    </div>
+  </section>
+
+  <!-- <Testimonial> -->
+    
+  <section class="">
+    <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+        <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+          <h2 class="text-3xl font-bold tracking-tight  sm:text-4xl">
+            No se fíe sólo de nuestra palabra...
+          </h2>
+
+          <!-- <p class="mt-4 ">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo placeat
+            harum porro optio fugit a culpa sunt id!
+          </p> -->
+
+          <div class="hidden lg:mt-8 lg:flex lg:gap-4">
+            <button
+              aria-label="Previous slide"
+              id="keen-slider-previous-desktop"
+              class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            >
+            <Icon pack="mdi" name="arrow-left-circle-outline" style="width:30px;" />
+            </button>
+
+            <button
+              aria-label="Next slide"
+              id="keen-slider-next-desktop"
+              class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            >
+            <Icon pack="mdi" name="arrow-right-circle-outline" style="width:30px;" />
+            </button>
+          </div>
+        </div>
+
+        <div class="-mx-6 lg:col-span-2 lg:mx-0">
+          <div id="keen-slider" class="keen-slider">
+            <div class="keen-slider__slide">
+              <blockquote
+                class="flex h-full flex-col justify-between  p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 " style="color: #ff8f44;">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl">Raíces Group LLC</p>
+
+                    <p class="mt-4 leading-relaxed ">
+                      Irasema me ayudó a crear el logotipo de la empresa teniendo en cuenta mis ideas. Es una persona muy preparada y estoy encantada de contar con sus servicios.
+                    </p>
+                  </div>
+                </div>
+
+                <footer class="mt-4 text-xl font-medium  sm:mt-6">
+                  &mdash; Propietario Araceli Milan
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="keen-slider__slide">
+              <blockquote
+                class="flex h-full flex-col justify-between  p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 " style="color: #ff8f44;">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl">Gema Floral Studio</p>
+
+                    <p class="mt-4 leading-relaxed ">
+                      "Trabajar con Irasema me resultó una experiencia agradable. Fue profesional en todo momento, supo ponerse en mi lugar y entendió a la perfección mis necesidades. Irasema es muy paciente, amable inteligente y comprensiva. Recomendaré encarecidamente a Irasema como agente de Marketing Digital a cualquier cliente potencial."
+                    </p>
+                  </div>
+                </div>
+
+                <footer class="mt-4 text-xl font-medium  sm:mt-6">
+                  &mdash; Jenny Sandoval
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="keen-slider__slide">
+              <blockquote
+                class="flex h-full flex-col justify-between  p-6 shadow-sm sm:p-8 lg:p-12"
+              >
+                <div>
+                  <div class="flex gap-0.5 " style="color: #ff8f44;">
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+
+                    <svg
+                      class="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="mt-4">
+                    <p class="text-2xl font-bold text-rose-600 sm:text-3xl">Kreel Inmobiliaria</p>
+
+                    <p class="mt-4 leading-relaxed ">
+                      Me encantó la atención en la consultoría con Irasema Sias, información muy clara y precisa, vi áreas de oportunidad que no tenía presentes en mi empresa.
+                    </p>
+                  </div>
+                </div>
+
+                <footer class="mt-4 text-xl font-medium  sm:mt-6">
+                  &mdash; CEO CP. Carlos Trujillo
+                </footer>
+              </blockquote>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-center gap-4 lg:hidden">
+        <button
+          aria-label="Previous slide"
+          id="keen-slider-previous"
+          class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+        >
+          <svg
+            class="size-5 -rotate-180 transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+        </button>
+
+        <button
+          aria-label="Next slide"
+          id="keen-slider-next"
+          class="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- </Testimonial> -->
+
+</DefaultLayout>
+<!-- <ScrollButton></ScrollButton> -->
+<style>
+
+  .title-about h3,h1,h2,h4 {
+    color: var(--action-color);
+  }
+
+  .text-gradient2 {
+    background: linear-gradient(315deg, var(--secondary-500), var(--primary-200) 25%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+</style>
+
+<script type="module">
+  import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
+
+  const keenSlider = new KeenSlider(
+    '#keen-slider',
+    {
+      loop: true,
+      slides: {
+        origin: 'center',
+        perView: 1.25,
+        spacing: 16,
+      },
+      breakpoints: {
+        '(min-width: 1024px)': {
+          slides: {
+            origin: 'auto',
+            perView: 1.5,
+            spacing: 32,
+          },
+        },
+      },
+    },
+    []
+  )
+
+  const keenSliderPrevious = document.getElementById('keen-slider-previous')
+  const keenSliderNext = document.getElementById('keen-slider-next')
+
+  const keenSliderPreviousDesktop = document.getElementById('keen-slider-previous-desktop')
+  const keenSliderNextDesktop = document.getElementById('keen-slider-next-desktop')
+
+  keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+  keenSliderNext.addEventListener('click', () => keenSlider.next())
+
+  keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
+  keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
+</script>
